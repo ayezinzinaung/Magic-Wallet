@@ -15,3 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/', 'Frontend\PageController@home');
+
+Route::get('admin/login', 'Backend\Auth\AdminLoginController@showLoginForm');
+Route::post('admin/login', 'Backend\Auth\AdminLoginController@login')->name('admin.login');
+
+Route::get('/admin', function(){
+    return ' Admin Home Page ';
+});
