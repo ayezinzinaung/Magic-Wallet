@@ -36,7 +36,7 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a href="{{route('admin.home')}}" class="mm-active">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Dashboard
                     </a>

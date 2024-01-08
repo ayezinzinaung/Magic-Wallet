@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('admin')->namespace('Backend')->middleware('auth:admin_user')->group(function(){
+Route::prefix('admin')->name('admin.')->namespace('Backend')->middleware('auth:admin_user')->group(function(){
     
-    Route::get('/', 'PageController@index');
+    Route::get('/', 'PageController@index')->name('home');
 });

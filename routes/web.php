@@ -19,5 +19,6 @@ Auth::routes();
 // Admin User Auth
 Route::get('admin/login', 'Backend\Auth\AdminLoginController@showLoginForm');
 Route::post('admin/login', 'Backend\Auth\AdminLoginController@login')->name('admin.login');
+Route::post('admin/logout', 'Backend\Auth\AdminLoginController@logout')->name('admin.logout');
 
 Route::get('/', 'Frontend\PageController@home');
