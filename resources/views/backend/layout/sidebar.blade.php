@@ -44,7 +44,7 @@
                 <li>
                     <a href="{{route('admin.admin-user.index')}}" class="@yield('admin-user-active')">
                         <i class="metismenu-icon pe-7s-user"></i>
-                        Admin User
+                        Admin Users
                     </a>
                 </li>
             </ul>

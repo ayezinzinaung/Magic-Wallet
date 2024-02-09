@@ -7,6 +7,7 @@ use App\Models\AdminUser;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -23,13 +24,20 @@ class AdminUserController extends Controller
 
     public function create()
     {
-        //
+        return view('backend.admin_user.create');
     }
 
     public function store(Request $request)
     {
-        //
-    }
+        $admin_user = new AdminUser();
+        $admin_user -> name = $request->name;
+        $admin_user -> email= $request->email;
+        $admin_user -> phone= $request->phone;
+        $admin_user -> password = Hash::make($request->password);
+        $admin_user -> save();
+
+        return redirect()->route('admin.admin-user.index')->with('create', 'Successfully Created.');
+    } 
 
     public function show($id)
     {

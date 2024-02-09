@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title', 'Dashboard')
+@section('title', 'Admin User')
 @section('admin-user-active', 'mm-active')
 @section('content')
 <div class="app-page-title">
@@ -10,20 +10,27 @@
                 </i>
             </div>
             <div>
-                Admin User
+                Admin Users
             </div>
         </div>
     </div>
 </div>
 
+<div class="py-3">
+    <a href="{{route('admin.admin-user.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Add Admin User</a>
+</div>
 <div class="content">
     <div class="card">
         <div class="card-body">
             <table class="table table-bordered Datatables">
                 <thead>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <tr class="bg-light">
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Created at</th>
+                        <th>Updated at</th>
+                    </tr>
                 </thead>
                 <tbody></tbody>
             </table>
@@ -52,6 +59,14 @@
                     data: "phone",
                     name: "phone"
                 },
+                {
+                    data: "created_at",
+                    name: "created_at"
+                },
+                {
+                    data: "updated_at",
+                    name: "updated_at"
+                }
             ]
         });
     })
