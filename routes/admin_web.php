@@ -17,6 +17,6 @@ Route::prefix('admin')->name('admin.')->namespace('Backend')->middleware('auth:a
     
     Route::get('/', 'PageController@index')->name('home');
 
-    Route::resource('admin-user', 'AdminUserController');
-    Route::get('admin-user/datatable/ssd', 'AdminUserController@ssd');
+    Route::resource('admin_user','AdminUserController');
+    Route::get('admin_user/datatables/ssd','AdminUserController@ssd');
 });
