@@ -34,6 +34,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// GoogleLoginController redirect and callback urls
-Route::get('/login/google', [GoogleLoginController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('/login/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
+// GoogleController redirect and callback urls
+Route::get('/login/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/login/google/callback', [GoogleController::class, 'handleGoogleCallback']);
