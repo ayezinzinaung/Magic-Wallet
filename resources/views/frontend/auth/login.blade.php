@@ -64,6 +64,14 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div>
+                            <button type="submit">
+                                <a href="{{url('auth/google')}}">
+                                    Login using Google
+                                </a>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
