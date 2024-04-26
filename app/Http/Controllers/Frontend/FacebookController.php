@@ -2,27 +2,25 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Exception;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Laravel\Socialite\Facades\Socialite;
 
-class GoogleController extends Controller
+class FacebookController extends Controller
 {
-    public function redirectToGoogle(): RedirectResponse
+    public function redirectToFacebook(): RedirectResponse
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
-    public function handleGoogleCallback(): RedirectResponse
+    public function handleFacebookCallback(): RedirectResponse
     {
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('facebook')->user();
 
-        $existingUser = User::where('google_id', $user->id)->first();
+        $existingUser = User::where('facebook_id', $user->id)->first();
 
         if ($existingUser) {
             // Log in the existing user.
@@ -32,7 +30,7 @@ class GoogleController extends Controller
             $newUser = new User();
             $newUser->name = $user->name;
             $newUser->email = $user->email;
-            $newUser->google_id = $user->id;
+            $newUser->facebook_id = $user->id;
             $newUser->password = bcrypt(request(Str::random())); // Set some random password
             $newUser->save();
 

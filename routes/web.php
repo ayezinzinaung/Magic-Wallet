@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\GoogleController;
+use App\Http\Controllers\Frontend\FacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,9 @@ Route::middleware([
 });
 
 // GoogleController redirect and callback urls
-Route::get('/login/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/login/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('/login/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+// FacebookController redirect and callback urls
+Route::get('/login/facebook', [FacebookController::class, 'redirectToFacebook']);
+Route::get('/login/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
